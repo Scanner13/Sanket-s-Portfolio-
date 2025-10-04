@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanket Bagal - Database Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+    <style>
+        .text-gradient {
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .skill-bubble {
+            transition: all 0.3s ease;
+        }
+        .skill-bubble:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #3b82f6;
+        }
+        .vanta-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .card-3d {
+            transform-style: preserve-3d;
+            transition: all 0.5s ease;
+        }
+        .card-3d:hover {
+            transform: rotateY(10deg) rotateX(5deg);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <div id="vanta-bg" class="vanta-bg"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white bg-opacity-90 shadow-sm z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold text-gradient">SANKET BAGAL</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-gray-700 hover:text-blue-600 transition">About</a>
+                    <a href="#skills" class="text-gray-700 hover:text-blue-600 transition">Skills</a>
+                    <a href="#experience" class="text-gray-700 hover:text-blue-600 transition">Experience</a>
+                    <a href="#projects" class="text-gray-700 hover:text-blue-600 transition">Projects</a>
+                    <a href="#contact" class="text-gray-700 hover:text-blue-600 transition">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="menu-btn" class="text-gray-700">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden fixed inset-0 bg-white z-40 pt-20 px-4">
+        <div class="flex flex-col space-y-6 text-lg">
+            <a href="#about" class="text-gray-700 hover:text-blue-600 transition">About</a>
+            <a href="#skills" class="text-gray-700 hover:text-blue-600 transition">Skills</a>
+            <a href="#experience" class="text-gray-700 hover:text-blue-600 transition">Experience</a>
+            <a href="#projects" class="text-gray-700 hover:text-blue-600 transition">Projects</a>
+            <a href="#contact" class="text-gray-700 hover:text-blue-600 transition">Contact</a>
+            <button id="close-menu" class="absolute top-4 right-4 text-gray-700">
+                <i data-feather="x"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center pt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4">Hi, I'm <span class="text-gradient">Sanket Bagal</span></h1>
+                    <h2 class="text-2xl md:text-3xl text-gray-600 mb-6">Database Developer & SQL Specialist</h2>
+                    <p class="text-lg text-gray-600 mb-8">Results-driven IT professional with 3+ years of experience in SQL Database Administration. Skilled in designing, maintaining, and optimizing enterprise databases.</p>
+                    <div class="flex space-x-4">
+                        <a href="#contact" class="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition">Contact Me</a>
+                        <a href="#projects" class="border border-blue-500 text-blue-500 px-6 py-3 rounded-full hover:bg-blue-50 transition">View Projects</a>
+                    </div>
+                </div>
+                <div data-aos="fade-left" class="flex justify-center">
+                    <div class="relative w-64 h-64 md:w-80 md:h-80">
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full blur-xl opacity-50"></div>
+                        <img src="http://static.photos/technology/640x360/13" alt="Sanket Bagal" class="relative w-full h-full rounded-full object-cover border-4 border-white shadow-2xl">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white bg-opacity-90">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-2">About Me</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Who I Am</h3>
+                    <p class="text-gray-600 mb-4">I'm a passionate Database Developer with expertise in SQL, PL/SQL, and database optimization. My journey in IT has been driven by a love for solving complex data challenges and creating efficient database solutions.</p>
+                    <p class="text-gray-600 mb-6">Beyond databases, I enjoy exploring new technologies and applying them to real-world problems. My analytical thinking and proactive approach help me deliver innovative solutions that drive business value.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="flex items-center">
+                            <i data-feather="map-pin" class="text-blue-500 mr-2"></i>
+                            <span class="text-gray-600">Vashi, Navi Mumbai</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i data-feather="mail" class="text-blue-500 mr-2"></i>
+                            <span class="text-gray-600">ssbagal13@gmail.com</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i data-feather="phone" class="text-blue-500 mr-2"></i>
+                            <span class="text-gray-600">+91 9833319680</span>
+                        </div>
+                    </div>
+                </div>
+                <div data-aos="fade-left">
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Personal Details</h3>
+                        <div class="space-y-4">
+                            <div class="flex">
+                                <span class="w-1/3 text-gray-600">Date of Birth</span>
+                                <span class="w-2/3 font-medium">13th June 1999</span>
+                            </div>
+                            <div class="flex">
+                                <span class="w-1/3 text-gray-600">Languages</span>
+                                <span class="w-2/3 font-medium">English, Hindi, Marathi</span>
+                            </div>
+                            <div class="flex">
+                                <span class="w-1/3 text-gray-600">Hobbies</span>
+                                <span class="w-2/3 font-medium">Sports, Trekking, Reading, Cooking</span>
+                            </div>
+                            <div class="flex">
+                                <span class="w-1/3 text-gray-600">Education</span>
+                                <span class="w-2/3 font-medium">B.E. - Shah & Anchor Kutchhi Engineering College (74.82%)</span>
+                            </div>
+                        </div>
+                        <div class="mt-8">
+                            <a href="https://www.linkedin.com/in/sanket-bagal-181a211aa" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800">
+                                <i data-feather="linkedin" class="mr-2"></i>
+                                Connect on LinkedIn
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-2">My Skills</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                <div data-aos="zoom-in" class="skill-bubble bg-white p-6 rounded-xl shadow-md text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="database" class="text-blue-600 w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-2">SQL & PL/SQL</h3>
+                    <p class="text-gray-600 text-sm">Expert in database queries, stored procedures, and optimization</p>
+                </div>
+                <div data-aos="zoom-in" data-aos-delay="100" class="skill-bubble bg-white p-6 rounded-xl shadow-md text-center">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="bar-chart-2" class="text-purple-600 w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-2">Tableau</h3>
+                    <p class="text-gray-600 text-sm">Data visualization and business intelligence</p>
+                </div>
+                <div data-aos="zoom-in" data-aos-delay="200" class="skill-bubble bg-white p-6 rounded-xl shadow-md text-center">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="server" class="text-green-600 w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-2">DBMS</h3>
+                    <p class="text-gray-600 text-sm">Database management systems design and implementation</p>
+                </div>
+                <div data-aos="zoom-in" data-aos-delay="300" class="skill-bubble bg-white p-6 rounded-xl shadow-md text-center">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="code" class="text-yellow-600 w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-2">HTML/CSS</h3>
+                    <p class="text-gray-600 text-sm">Front-end development basics</p>
+                </div>
+                <div data-aos="zoom-in" data-aos-delay="400" class="skill-bubble bg-white p-6 rounded-xl shadow-md text-center">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="file-text" class="text-red-600 w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-2">Excel/PowerPoint</h3>
+                    <p class="text-gray-600 text-sm">Advanced data analysis and presentations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-2">Work Experience</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
+            </div>
+            <div class="relative">
+                <div class="absolute left-0 top-0 h-full w-0.5 bg-gray-200 ml-4 md:ml-6"></div>
+                <div class="space-y-12 pl-8 md:pl-12">
+                    <div data-aos="fade-up" class="relative timeline-item">
+                        <div class="card-3d bg-gray-50 p-6 rounded-xl shadow-md border-l-4 border-blue-500">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                                <h3 class="text-xl font-semibold text-gray-800">Systems Engineer</h3>
+                                <span class="text-blue-600 font-medium">Jan 2022 – May 2025</span>
+                            </div>
+                            <h4 class="text-lg text-gray-700 mb-4">Infosys Limited</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-600">
+                                <li>Collaborated with development and supported team to optimize data-driven processes</li>
+                                <li>Designed and implemented normalized relational databases using PL/SQL and PostgreSQL</li>
+                                <li>Developed advanced SQL queries to generate sales reports and business insights</li>
+                                <li>Created stored procedures and triggers for real-time inventory updates</li>
+                                <li>Optimized database performance through indexing and query tuning</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="100" class="relative timeline-item">
+                        <div class="card-3d bg-gray-50 p-6 rounded-xl shadow-md border-l-4 border-purple-500">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                                <h3 class="text-xl font-semibold text-gray-800">Data Analyst Intern</h3>
+                                <span class="text-purple-600 font-medium">Jul 2021 – Jan 2022</span>
+                            </div>
+                            <h4 class="text-lg text-gray-700 mb-4">Learning 360 Academy</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-600">
+                                <li>Performed data cleaning and quality control on raw datasets using Python and SQL</li>
+                                <li>Identified and resolved data issues such as duplicates and missing values</li>
+                                <li>Conducted data validation and integrity checks</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="200" class="relative timeline-item">
+                        <div class="card-3d bg-gray-50 p-6 rounded-xl shadow-md border-l-4 border-green-500">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                                <h3 class="text-xl font-semibold text-gray-800">AutoCAD & IoT Intern</h3>
+                                <span class="text-green-600 font-medium">Jun 2019 – Jul 2019</span>
+                            </div>
+                            <h4 class="text-lg text-gray-700 mb-4">Internship</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-600">
+                                <li>Gained hands-on experience in designing electronic circuit boards using AutoCAD</li>
+                                <li>Underwent IoT training focused on interfacing sensors and devices</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-2">Projects</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div data-aos="fade-up" class="card-3d bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-48 bg-gradient-to-r from-blue-400 to-purple-500 flex items-center justify-center">
+                        <i data-feather="eye" class="text-white w-16 h-16"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Smart Glance Assist</h3>
+                        <p class="text-gray-600 mb-4">Glares for visually impaired people to assist them in their daily needs like currency recognition and product detection.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">IoT</span>
+                            <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Computer Vision</span>
+                            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Assistive Tech</span>
+                        </div>
+                        <p class="text-sm text-gray-500">Jul 2020 – May 2021</p>
+                    </div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="100" class="card-3d bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-48 bg-gradient-to-r from-green-400 to-blue-500 flex items-center justify-center">
+                        <i data-feather="cpu" class="text-white w-16 h-16"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Arduino & Raspberry Pi Projects</h3>
+                        <p class="text-gray-600 mb-4">Designed systems like home automation, drawing pad, and gaming pad using Arduino and Raspberry Pi.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-red-100 text-red-800 text-xs px-3 py-1 rounded-full">Arduino</span>
+                            <span class="bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full">Raspberry Pi</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Embedded Systems</span>
+                        </div>
+                        <p class="text-sm text-gray-500">Jun 2019 – Jul 2019</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-2">Get In Touch</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Have a project in mind or want to discuss potential opportunities? Feel free to reach out!</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div data-aos="fade-right">
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Contact Information</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                    <i data-feather="mail" class="text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Email</h4>
+                                    <p class="text-gray-600">ssbagal13@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-purple-100 p-3 rounded-full mr-4">
+                                    <i data-feather="phone" class="text-purple-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Phone</h4>
+                                    <p class="text-gray-600">+91 9833319680</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-green-100 p-3 rounded-full mr-4">
+                                    <i data-feather="map-pin" class="text-green-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Location</h4>
+                                    <p class="text-gray-600">Vashi, Navi Mumbai, Maharashtra</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-8">
+                            <h4 class="font-medium text-gray-800 mb-4">Connect with me</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://www.linkedin.com/in/sanket-bagal-181a211aa" target="_blank" class="bg-blue-100 p-3 rounded-full text-blue-600 hover:bg-blue-200 transition">
+                                    <i data-feather="linkedin"></i>
+                                </a>
+                                <a href="#" class="bg-gray-100 p-3 rounded-full text-gray-600 hover:bg-gray-200 transition">
+                                    <i data-feather="github"></i>
+                                </a>
+                                <a href="#" class="bg-blue-100 p-3 rounded-full text-blue-400 hover:bg-blue-200 transition">
+                                    <i data-feather="twitter"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-aos="fade-left">
+                    <form class="bg-gray-50 p-8 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Send Me a Message</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-gray-700 mb-2">Your Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-700 mb-2">Email Address</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label for="subject" class="block text-gray-700 mb-2">Subject</label>
+                                <input type="text" id="subject" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-gray-700 mb-2">Message</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-lg hover:shadow-lg transition">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-2xl font-bold mb-4">Sanket Bagal</h2>
+                <p class="text-gray-400 mb-8 max-w-2xl mx-auto">Database Developer specializing in SQL, PL/SQL, and database optimization with 3+ years of professional experience.</p>
+                <div class="flex justify-center space-x-6 mb-8">
+                    <a href="https://www.linkedin.com/in/sanket-bagal-181a211aa" target="_blank" class="text-gray-400 hover:text-white transition">
+                        <i data-feather="linkedin"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i data-feather="github"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i data-feather="twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i data-feather="mail"></i>
+                    </a>
+                </div>
+                <div class="border-t border-gray-800 pt-8">
+                    <p class="text-gray-400">&copy; 2023 Sanket Bagal. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize animations and effects
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Initialize Vanta.js globe background
+        VANTA.GLOBE({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x3b82f6,
+            backgroundColor: 0xf8fafc,
+            size: 0.8
+        });
+
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const closeMenu = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            document.body.style.overflow = '';
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Replace Feather icons
+        feather.replace();
+    </script>
+</body>
+</html>
